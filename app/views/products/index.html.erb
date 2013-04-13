@@ -1,0 +1,37 @@
+<script>
+    document.getElementById("nav_products").className += " active"
+</script>
+<div id="product_list">
+  <h1>Managing products</h1>
+
+  <table class="table table-bordered table-hover">
+    <% @products.each do |product| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+          <td>
+            <%= image_tag(product.image_url, :class => 'list_image', :size => "100x100") %>
+          </td>
+
+          <td class="list_description">
+            <dl>
+              <dt><%= product.title %></dt>
+              <dd><%= truncate(strip_tags(product.description),
+                               :length => 80) %></dd>
+            </dl>
+          </td>
+
+          <td class="list_actions">
+            <%= link_to 'Open', product %><br/>
+            <%= link_to 'Edit', edit_product_path(product) %><br/>
+            <%= link_to 'Delete'.html_safe, product,
+                        :confirm => 'Are you sure?',
+                        :method => :delete %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+<br />
+
+<%= link_to 'New product', new_product_path %>

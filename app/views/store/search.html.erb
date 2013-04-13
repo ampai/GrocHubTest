@@ -1,0 +1,16 @@
+
+
+<h1 align="center">Search Results</h1>
+
+<% @prodSearch.each do |product| %>
+    <div class="entry">
+      <%= image_tag(product.image_url, :size => "100x100") %>
+      <h3><%= product.title %></h3>
+      <%= sanitize(product.description) %>
+      <div class="price_line">
+        <span class="price">Price: $<%= product.price %></span>
+      </div>
+    </div>
+    <hr />
+<% end %>
+
