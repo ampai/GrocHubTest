@@ -13,3 +13,21 @@
  *= require_tree .
  */
 
+body
+{
+
+    background: #000 url(../assets/images/bg.png) repeat;
+}
+
+
+div.centered
+{
+    margin-left:auto;
+    margin-right:auto;
+
+    text-align:left;
+    width:960px;
+
+    background: #C5C5C5;
+    padding: 15px;
+}

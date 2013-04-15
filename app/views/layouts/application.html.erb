@@ -9,72 +9,64 @@
   <!-- END:stylesheet -->
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %><!-- <label id="code.csrf"/> -->
-
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
   <!--Le Enils custom styling -->
-  <style type="text/css">
-      body
-      {
-          background: #000 url(../assets/images/bg.png) repeat;
-      }
 
-      div.center
-      {
-          margin-left:auto;
-          margin-right:auto;
-          width:70%;
-          text-align:left;
-          width:960px;
-          min-height:740px;
-          background: #DBDBDB;
-          padding: 15px;
-      }
-      div.headline
-      {
-          margin-left:auto;
-          margin-right:auto;
-
-          text-align:left;
-          width:960px;
-
-          background: #C5C5C5;
-          padding: 15px;
-      }
-
-  </style>
-  <!--Le Enils custom styling End -->
 </head>
-<body id="store">
-
-<div class="headline">
-  <img class="" src="../assets/images/ghub.png" width="900px"/>
-</div>
-<div class="center">
+<body class="<%= controller.controller_name %>">
 
 
-  <div class="navbar">
+
+
+
+  <div class="navbar navbar-fixed-top">
+
     <div class="navbar-inner">
       <a class="brand" href="#"><i>Grocery Hub</i></a>
       <ul class="nav">
         <li id="nav_home"><a href="/">Home</a></li>
         <li id="nav_products"><a href="/products">Manage</a></li>
-        <li id="nav_cart"><a href="/carts">Cart</a></li>
+
       </ul>
 
-    <form class="navbar-form pull-right" action='/search' method="get">
+      <form class="navbar-form pull-right" action='/search' method="get">
       <input type="text" class="span2" id="searchID" name="searcher">
       <button type="submit" class="btn">Submit</button>
-    </form>
+      </form>
+
+
+
     </div>
+
   </div>
-  <hr />
-
-
-  <!-- Content goes underneath here, view-content dumped here -->
-  <div class="container">
-
-  <%= yield %>
-  <!-- end content -->
+  <br>
+  <br>
+  <div class="centered well">
+    <img class="" src="../assets/images/ghub.png" width="900px"/>
   </div>
-</div>
+
+
+
+
+
+    <div class="centered well">
+      <div class="row">
+
+          <div id="cart" class="span4">
+            <%= render @cart %>
+
+
+          </div>
+          <div id="main_content" class="span8">
+            <!-- begin app generated content -->
+            <%= yield %>
+            <!-- end content                 -->
+          </div>
+
+      </div>
+    </div>
+
+
+
 </body>
 </html>
