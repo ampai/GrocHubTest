@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
+  before_filter :set_cart
   def index
     @products = Product.all
 
