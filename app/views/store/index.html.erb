@@ -13,8 +13,10 @@
           <h3><%= product.title %></h3>
           <p><%= sanitize(product.description) %></p>
           <h4><%= number_to_currency(product.price) %></h4>
+          <div id="addtocart">
           <%= button_to 'Add to Cart', line_items_path(product_id: product),
                         remote: true %>
+            </div>
         </div>
       </li>
 <% end %>
