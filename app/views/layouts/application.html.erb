@@ -1,70 +1,44 @@
-
+<!-- START:head -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Grocery Hub: Groceries as a Service (GaaS)</title>
-  <!-- START:stylesheet -->
-
-  <%= stylesheet_link_tag "application", :media => "all" %><!-- <label id="code.slt"/> -->
-  <!-- END:stylesheet -->
+  <title>Grocery Hub</title>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tag %><!-- <label id="code.csrf"/> -->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-  <!--Le Enils custom styling -->
-
+  <%= csrf_meta_tag %>
 </head>
+<!-- END:head -->
 <body class="<%= controller.controller_name %>">
+<div id="banner">
+  <%= image_tag("http://placehold.it/200x100") %>
+  <%= @page_title || "Grocery Hub: Online Delivery Service" %>
+</div>
+<div id="columns">
+  <div id="side">
+    <!-- START_HIGHLIGHT -->
+    <!-- START:hidden_div -->
+    <!-- START_HIGHLIGHT -->
+    <% if @cart %>
+        <!-- END_HIGHLIGHT -->
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+        <% end %>
+        <!-- START_HIGHLIGHT -->
+    <% end %>
+    <!-- END_HIGHLIGHT -->
+    <!-- END:hidden_div -->
 
-
-
-
-
-  <div class="navbar navbar-fixed-top">
-
-    <div class="navbar-inner">
-      <a class="brand" href="#"><i>Grocery Hub</i></a>
-      <ul class="nav">
-        <li id="nav_home"><a href="/">Home</a></li>
-        <li id="nav_products"><a href="/products">Manage</a></li>
-
-      </ul>
-
-      <form class="navbar-form pull-right" action='/search' method="get">
-      <input type="text" class="span2" id="searchID" name="searcher">
-      <button type="submit" class="btn">Submit</button>
-      </form>
-
-
-
-    </div>
-
+    <!-- END_HIGHLIGHT -->
+    <ul>
+      <li><a href="http://www....">Home</a></li>
+      <li><a href="http://www..../faq">Questions</a></li>
+      <li><a href="http://www..../news">News</a></li>
+      <li><a href="http://www..../contact">Contact</a></li>
+    </ul>
   </div>
-  <br>
-  <br>
-  <div class="centered well">
-    <img class="" src="../assets/images/ghub.png" width="900px"/>
+  <div id="main">
+    <%= yield %>
   </div>
-
-
-
-
-
-    <div class="centered well">
-      <div class="row">
-
-          <div id="cart" class="span4">
-
-          </div>
-          <div id="main_content" class="span8">
-            <!-- begin app generated content -->
-            <%= yield %>
-            <!-- end content                 -->
-          </div>
-
-      </div>
-    </div>
-
-
-
+</div>
 </body>
 </html>

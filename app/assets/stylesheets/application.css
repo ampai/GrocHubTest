@@ -8,26 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap
  *= require_self
  *= require_tree .
  */
 
-body
-{
-
-    background: #000 url(../assets/images/bg.png) repeat;
-}
-
-
-div.centered
-{
-    margin-left:auto;
-    margin-right:auto;
-
-    text-align:left;
-    width:960px;
-
-    background: #C5C5C5;
-    padding: 15px;
-}
