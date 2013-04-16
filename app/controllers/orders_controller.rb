@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
-  before_filter :set_cart, only: [:new, :create]
+  before_filter  :set_cart, only: [:new, :create]
   def index
     @orders = Order.all
 

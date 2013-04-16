@@ -22,7 +22,19 @@
 
       <!-- Be sure to leave the brand out there if you want it shown -->
       <a class="brand" href="/">Grocery Hub</a>
-
+      <% if not user_signed_in? %>
+          <form class="navbar-form pull-right" action="/users/sign_in" method="post" id="new_user">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input class="span2" type="text" placeholder="Email" name="user[email]">
+            <input class="span2" type="password" placeholder="Password" name="user[password]">
+            <button type="submit" class="btn">Sign in</button>
+          </form>
+      <% else %>
+          <div class="pull-right" style="color: white; padding-top: 10px;">
+            <span style="color: white;"> Signed in as <%= current_user.email %> </span>
+            <%= link_to "Sign out", destroy_user_session_url, :method=>"delete" %>
+          </div>
+      <% end %>
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse">
         <!-- .nav, .navbar-search, .navbar-form, etc -->

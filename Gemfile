@@ -40,3 +40,5 @@ gem 'jquery-rails'
 #START_HIGHLIGHT
 gem 'will_paginate', '~> 3.0'
 #END_HIGHLIGHT
+
+gem 'devise'
