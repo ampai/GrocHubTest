@@ -1,5 +1,6 @@
-<div class="cart_title">Your Cart</div>
-<table>
+<div class="affix well">
+<h3>Your Cart</h3>
+<table class="table-bordered">
   <%= render(cart.line_items) %>
 
   <tr class="total_line">
@@ -14,3 +15,5 @@
 <!-- END_HIGHLIGHT -->
 <%= button_to 'Empty cart', cart, method: :delete,
     confirm: 'Are you sure?' %>
+
+</div>
